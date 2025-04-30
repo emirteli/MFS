@@ -1,0 +1,150 @@
+/* Genel Stil */
+body {
+  font-family: 'Barlow Condensed', sans-serif;
+  background-color: #0f0f0f;
+  color: white;
+  text-align: center;
+}
+
+/* Intro Bölümüne Stil */
+.intro {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+/* Animasyon: Fade-in (yavaşça görünme) */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+    /* Başlangıçta biraz yukarıda */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    /* Sonunda normal yerine yerleşecek */
+  }
+}
+
+/* Başlık için Animasyon */
+.intro-title {
+  font-size: 3em;
+  font-weight: bold;
+  animation: fadeInTitle 2s ease-in-out forwards;
+  animation-delay: 0.5s;
+  /* Başlık biraz sonra görünsün */
+}
+
+/* Metin için Animasyon */
+.intro-text {
+  font-size: 1.5em;
+  color: #555;
+  animation: fadeInText 2s ease-in-out forwards;
+  animation-delay: 1s;
+  /* Metin biraz sonra görünsün */
+}
+
+/* Başlık için Animasyon */
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Metin için Animasyon */
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Başlık için Titreşimli Animasyon */
+.intro-title {
+  font-size: 3em;
+  font-weight: bold;
+  color: red;
+  animation: shake 1s ease-in-out;
+  /* Yavaşça titreşim */
+  animation-iteration-count: 1;
+  /* Sadece bir kez çalışacak */
+  animation-delay: 0.5s;
+  /* Başlık biraz sonra görünmeye başlasın */
+}
+
+/* Titreşim Animasyonu */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+    /* Sol tarafa hafif kayma */
+  }
+
+  50% {
+    transform: translateX(5px);
+    /* Sağ tarafa hafif kayma */
+  }
+
+  75% {
+    transform: translateX(-5px);
+    /* Sol tarafa hafif kayma */
+  }
+
+  100% {
+    transform: translateX(0);
+    /* Başlangıç noktasına dönme */
+  }
+}
+
+/* Genel Stil */
+body {
+  font-family: 'Barlow Condensed', sans-serif;
+  background-color: #0f0f0f;
+  color: white;
+  text-align: center;
+}
+
+/* "Hoşgeldiniz Manifest Sitesine" Başlığı için Saydamlıkla Kaybolma Animasyonu */
+.intro-title {
+  font-size: 3em;
+  font-weight: bold;
+  color: red;
+  animation: fadeOut 5s forwards;
+  /* Saydamlaşarak kaybolma animasyonu */
+  animation-delay: 0.5s;
+  /* Başlık biraz sonra görünmeye başlasın */
+}
+
+/* Saydamlıkla Kaybolma Animasyonu */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    /* Başlangıçta tamamen görünür */
+  }
+
+  50% {
+    opacity: 0.5;
+    /* Yavaşça yarı saydam olur */
+  }
+
+  100% {
+    opacity: 0;
+    /* Sonunda tamamen şeffaf olur */
+  }
+}
+ka

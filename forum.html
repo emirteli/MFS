@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Başvuru Formu</title>
+
+    <!-- Google Fonts - Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-title {
+        font-size: 2rem;
+        font-weight: 600;
+        text-align: center;
+        color: #4f46e5;
+        margin-bottom: 20px;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 10px 12px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        background-color: #f9fafb;
+        font-size: 16px;
+        color: #333;
+        outline: none;
+      }
+
+      .input-field:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 10px rgba(79, 70, 229, 0.2);
+      }
+
+      .textarea-field {
+        width: 100%;
+        padding: 10px 12px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        background-color: #f9fafb;
+        font-size: 16px;
+        color: #333;
+        outline: none;
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .textarea-field:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 10px rgba(79, 70, 229, 0.2);
+      }
+
+      .submit-btn {
+        background-color: #4f46e5;
+        color: #fff;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        width: 100%;
+        transition: background-color 0.3s;
+      }
+
+      .submit-btn:hover {
+        background-color: #4338ca;
+      }
+
+      .form-container {
+        width: 100%;
+      }
+
+      .label {
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      .message {
+        font-size: 18px;
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2 class="form-title">Başvuru Formu</h2>
+
+      <form id="application-form" class="form-container">
+        <label for="discord-id" class="label">Discord ID'niz</label>
+        <input
+          type="text"
+          id="discord-id"
+          name="discord-id"
+          class="input-field"
+          required
+          placeholder="Discord ID'nizi yazın"
+        /><br />
+
+        <label for="active-hours" class="label"
+          >Günde Kaç Saat Aktif Olabilirsiniz?</label
+        >
+        <input
+          type="number"
+          id="active-hours"
+          name="active-hours"
+          class="input-field"
+          required
+          placeholder="Örneğin: 5"
+        /><br />
+
+        <label for="age" class="label">Kaç Yaşındasınız?</label>
+        <input
+          type="number"
+          id="age"
+          name="age"
+          class="input-field"
+          required
+          placeholder="Yaşınızı Girin"
+        /><br />
+
+        <label for="pc-specs" class="label"
+          >Bilgisayar Özellikleriniz Nedir?</label
+        >
+        <textarea
+          id="pc-specs"
+          name="pc-specs"
+          class="textarea-field"
+          required
+          placeholder="Bilgisayar özelliklerinizi yazın"
+        ></textarea
+        ><br />
+
+        <label for="organizations" class="label">Oynadığınız Oluşumlar</label>
+        <textarea
+          id="organizations"
+          name="organizations"
+          class="textarea-field"
+          required
+          placeholder="Katıldığınız oluşumları yazın"
+        ></textarea
+        ><br />
+
+        <label for="fivem-hours" class="label"
+          >FiveM'de Kaç Saatiniz Var?</label
+        >
+        <input
+          type="number"
+          id="fivem-hours"
+          name="fivem-hours"
+          class="input-field"
+          required
+          placeholder="Örneğin: 100"
+        /><br />
+
+        <label for="map-knowledge" class="label"
+          >Gelişmiş Map Bilginiz Var mı?</label
+        >
+        <textarea
+          id="map-knowledge"
+          name="map-knowledge"
+          class="textarea-field"
+          required
+          placeholder="10/4"
+        ></textarea
+        ><br />
+
+        <label for="reference" class="label">Referansınız Varmı?</label>
+        <input
+          type="text"
+          id="reference"
+          name="reference"
+          class="input-field"
+          required
+          placeholder="Var İse Discord ID'si"
+        /><br />
+
+        <label for="f2f-pov" class="label"
+          >En Az 5/10 Adet F2F Kill POV (Zorunlu)</label
+        >
+        <textarea
+          id="f2f-pov"
+          name="f2f-pov"
+          class="textarea-field"
+          required
+          placeholder="POVları Url Yapıp Atın"
+        ></textarea
+        ><br />
+
+        <button type="submit" class="submit-btn">Başvuruyu Gönder</button>
+      </form>
+
+      <div id="response-message" class="message"></div>
+    </div>
+
+    <script>
+      document
+        .getElementById("application-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Form verilerini al
+          const formData = new FormData(this);
+          const discordId = formData.get("discord-id");
+          const activeHours = formData.get("active-hours");
+          const age = formData.get("age");
+          const pcSpecs = formData.get("pc-specs");
+          const organizations = formData.get("organizations");
+          const fivemHours = formData.get("fivem-hours");
+          const mapKnowledge = formData.get("map-knowledge");
+          const reference = formData.get("reference");
+          const f2fPov = formData.get("f2f-pov");
+
+          // Webhook URL'si: Webhook URL'sini alıp yukarıdaki koda eklemeniz gerekir.
+          const webhookUrl =
+            "https://discord.com/api/webhooks/1362100667224948937/gOVtXbLaR1dCtPadOyP2LkzEbHqOk7kTUE8Em46TJpzh9abREI5BvAi3tRAHCTrjxFXq"; // Webhook URL'nizi buraya ekleyin
+
+          // Mesaj Yapısı: Discord'a göndereceğimiz mesajda, başvuru formundaki her bir alan bir embed olarak oluşturulur.
+          const message = {
+            content: "Yeni Başvuru!",
+            embeds: [
+              {
+                title: "Başvuru Detayları",
+                fields: [
+                  { name: "Discord ID", value: discordId },
+                  {
+                    name: "Günde Kaç Saat Aktif Olabilirsiniz?",
+                    value: activeHours,
+                  },
+                  { name: "Kaç Yaşındasınız?", value: age },
+                  { name: "Bilgisayar Özellikleriniz", value: pcSpecs },
+                  { name: "Oynadığınız Oluşumlar", value: organizations },
+                  { name: "FiveM'de Kaç Saatiniz Var?", value: fivemHours },
+                  {
+                    name: "Gelişmiş Map Bilginiz Var mı?",
+                    value: mapKnowledge,
+                  },
+                  { name: "Referansınız Varmı?", value: reference },
+                  { name: "F2F Kill POV", value: f2fPov },
+                ],
+              },
+            ],
+          };
+
+          // Formu Discord Webhook URL'sine gönder
+          fetch(webhookUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(message),
+          })
+            .then(() => {
+              // Başarılı bir şekilde gönderildiğinde mesajı göster
+              document.getElementById("response-message").innerHTML =
+                "<p style='color: green;'>Başvurunuz başarıyla gönderildi!</p>";
+              document.getElementById("application-form").reset(); // Formu sıfırlama
+            })
+            .catch((error) => {
+              // Hata durumunda kullanıcıya bildirim
+              console.error("Hata:", error);
+              document.getElementById("response-message").innerHTML =
+                "<p style='color: red;'>Başvurunuz gönderilirken bir hata oluştu.</p>";
+            });
+        });
+    </script>
+  </body>
+</html>

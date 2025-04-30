@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manifest</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f0f0f;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    .mute-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 9999px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .mute-button:hover {
+      background-color: rgba(139, 92, 246, 0.7);
+      /* mor */
+    }
+
+    .intro {
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .intro-title {
+      font-size: 3em;
+      font-weight: bold;
+      color: #a855f7;
+      animation: fadeOut 5s forwards, shake 1s ease-in-out 0.5s;
+    }
+
+    .intro-text {
+      font-size: 1.5em;
+      color: #bfa3ff;
+      animation: fadeInText 2s ease-in-out forwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInText {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-5px);
+      }
+
+      50% {
+        transform: translateX(5px);
+      }
+
+      75% {
+        transform: translateX(-5px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+
+    /* Sol ve sağ profillerin yukarıdan ve aşağıdan kayma animasyonları */
+    .left-profile,
+    .right-profile {
+      position: fixed;
+      z-index: 10;
+    }
+
+    .left-profile {
+      left: 0;
+      animation: slideUp 10s ease-in-out infinite;
+    }
+
+    .right-profile {
+      right: 0;
+      animation: slideDown 10s ease-in-out infinite;
+    }
+
+    /* Sol profillerin animasyonu */
+    @keyframes slideUp {
+      0% {
+        transform: translateY(-100vh);
+        /* Başlangıçta yukarıda */
+      }
+
+      50% {
+        transform: translateY(0);
+        /* Ortada buluşma */
+      }
+
+      100% {
+        transform: translateY(-100vh);
+        /* Sonunda yukarıya kaybolma */
+      }
+    }
+
+    /* Sağ profillerin animasyonu */
+    @keyframes slideDown {
+      0% {
+        transform: translateY(100vh);
+        /* Başlangıçta aşağıda */
+      }
+
+      50% {
+        transform: translateY(0);
+        /* Ortada buluşma */
+      }
+
+      100% {
+        transform: translateY(100vh);
+        /* Sonunda aşağıya kaybolma */
+      }
+    }
+
+    .profile {
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    .profile img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen px-4">
+
+  <section class="my-10">
+    <a href="https://discord.gg/mfsrox" target="_blank"
+      class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full shadow-lg transition duration-300 flex items-center justify-center space-x-3">
+      <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Discord Logo" class="w-6 h-6">
+      <span>Git</span>
+    </a>
+  </section>
+
+
+  <!-- Arka Plan Videosu -->
+  <video id="bg-video" autoplay muted loop playsinline class="background-video">
+    <source src="mfs.mp4" type="video/mp4">
+    Tarayıcınız video etiketini desteklemiyor.
+  </video>
+
+  <!-- Ses Aç / Kapat Butonu -->
+  <button class="mute-button" onclick="toggleMute()">🔇 Sesi Aç/Kapat</button>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <h1 class="intro-title">Hoşgeldiniz Manifest Sitesine</h1>
+  </section>
+
+  <!-- HERO -->
+  <section class="text-center my-10">
+    <h1 class="text-5xl md:text-6xl font-bold drop-shadow-gumus hero-title">Manifest</h1>
+    <p class="mt-4 text-lg drop-shadow-gumus hero-text">"Mücadele, sadece bir yol değil; varoluşumuzun manifestosudur."
+    </p>
+    <div class="mt-6">
+      <a href="forum.html" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full transition">Başvuru Formuna
+        Git</a>
+      <a href="#ekip" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full transition">Ekibimizi Tanı</a>
+    </div>
+  </section>
+
+
+
+  <!-- HAKKIMIZDA -->
+  <section class="max-w-3xl my-10 text-center">
+    <h2 class="text-3xl text-white font-bold mb-4">Hakkımızda</h2>
+    <p class="text-gray-400 leading-relaxed">
+      Zorluklar bir yoldaş, mücadele bir amaçtır. Manifest, güçlenmek için doğduğumuzun kanıtıdır.
+    </p>
+  </section>
+
+  <!-- EKİBİMİZ -->
+  <section id="ekip" class="my-16 w-full max-w-6xl text-center px-4">
+    <h2 class="text-4xl text-white font-bold mb-10 tracking-wide">EKİBİMİZ</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+      <!-- EMİRTELİ -->
+      <a href="https://discord.gg/3BTthMr2Jf" target="_blank" rel="noopener noreferrer">
+        <div
+          class="bg-zinc-900 p-6 rounded-2xl shadow-xl transition hover:scale-105 hover:shadow-purple-500/30 duration-300">
+          <img
+            src="https://cdn.discordapp.com/avatars/929766610896572426/7311fdd89fdbebd05bc8938a7447954d.png?size=1024"
+            alt="Emirteli" class="w-16 h-16 rounded-full mx-auto mb-4 border border-purple-500">
+          <h3 class="text-xl text-purple-400 font-bold tracking-wide">EMİRTELİ</h3>
+          <p class="text-gray-400">Yönetici / Manifest</p>
+        </div>
+      </a>
+
+      <!-- FLOZEN -->
+      <a href="https://discord.gg/3BTthMr2Jf" target="_blank" rel="noopener noreferrer">
+        <div
+          class="bg-zinc-900 p-6 rounded-2xl shadow-xl transition hover:scale-105 hover:shadow-purple-500/30 duration-300">
+          <img
+            src="https://cdn.discordapp.com/avatars/883817584917614653/59e49a855dca02661fb3c4b3890f7422.png?size=1024"
+            alt="Flozen" class="w-16 h-16 rounded-full mx-auto mb-4 border border-purple-500">
+          <h3 class="text-xl text-purple-400 font-bold tracking-wide">FLOZEN</h3>
+          <p class="text-gray-400">Kurucu / Manifest</p>
+        </div>
+      </a>
+
+
+      <!-- QWEEX -->
+      <a href="https://discord.gg/3BTthMr2Jf" target="_blank" rel="noopener noreferrer">
+        <div
+          class="bg-zinc-900 p-6 rounded-2xl shadow-xl transition hover:scale-105 hover:shadow-purple-500/30 duration-300">
+          <img
+            src="https://cdn.discordapp.com/avatars/1006616069298978877/0a7b922e98e130eae08fe01ec045e785.png?size=1024"
+            alt="Qweex" class="w-16 h-16 rounded-full mx-auto mb-4 border border-purple-500">
+          <h3 class="text-xl text-purple-400 font-bold tracking-wide">QWEEX</h3>
+          <p class="text-gray-400">Yönetici / Manifest</p>
+        </div>
+      </a>
+
+      <!-- MFS 1 -->
+      <a href="https://discord.gg/mfs" target="_blank" rel="noopener noreferrer">
+        <div
+          class="bg-zinc-900 p-6 rounded-2xl shadow-xl transition hover:scale-105 hover:shadow-purple-500/30 duration-300">
+          <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="MFS"
+            class="w-16 h-16 rounded-full mx-auto mb-4 border border-purple-500">
+          <h3 class="text-xl text-purple-400 font-bold tracking-wide">MFS</h3>
+          <p class="text-gray-400">MFS</p>
+        </div>
+      </a>
+
+      <!-- NOXIE -->
+      <a href="https://discord.gg/3BTthMr2Jf" target="_blank" rel="noopener noreferrer">
+        <div
+          class="bg-zinc-900 p-6 rounded-2xl shadow-xl transition hover:scale-105 hover:shadow-purple-500/30 duration-300">
+          <img
+            src="https://cdn.discordapp.com/avatars/1144599886424186911/a_783601f6d5502a06ab5ec1565f991dfb.gif?size=1024"
+            alt="Noxie" class="w-16 h-16 rounded-full mx-auto mb-4 border border-purple-500">
+          <h3 class="text-xl text-purple-400 font-bold tracking-wide">NOXIE</h3>
+          <p class="text-gray-400">Yönetici / Manifest</p>
+        </div>
+      </a>
+
+      <!-- MFS 2 (placeholder) -->
+      <a href="https://discord.gg/mfs" target="_blank" rel="noopener noreferrer">
+        <div
+          class="bg-zinc-900 p-6 rounded-2xl shadow-xl transition hover:scale-105 hover:shadow-purple-500/30 duration-300">
+          <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="MFS"
+            class="w-16 h-16 rounded-full mx-auto mb-4 border border-purple-500">
+          <h3 class="text-xl text-purple-400 font-bold tracking-wide">MFS</h3>
+          <p class="text-gray-400">MFS</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- Discord Profillerinin Sol ve Sağda Akması -->
+  <div class="left-profile">
+    <div class="profile">
+      <img src="https://cdn.discordapp.com/avatars/883817584917614653/59e49a855dca02661fb3c4b3890f7422.png?size=1024"
+        alt="Discord Profile 1" />
+    </div>
+    <div class="profile">
+      <img src="https://cdn.discordapp.com/avatars/1144599886424186911/a_783601f6d5502a06ab5ec1565f991dfb.gif?size=1024"
+        alt="Discord Profile 2" />
+    </div>
+  </div>
+
+  <div class="right-profile">
+    <div class="profile">
+      <img src="https://cdn.discordapp.com/avatars/1006616069298978877/0a7b922e98e130eae08fe01ec045e785.png?size=1024"
+        alt="Discord Profile 3" />
+    </div>
+    <div class="profile">
+      <img src="https://cdn.discordapp.com/avatars/929766610896572426/7311fdd89fdbebd05bc8938a7447954d.png?size=1024
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        " alt="Discord Profile 4" />
+    </div>
+  </div>
+
+  <footer class="mt-12 text-sm text-gray-600">
+    © 2025 Manifest. Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    function toggleMute() {
+      const video = document.getElementById("bg-video");
+      video.muted = !video.muted;
+    }
+  </script>
+
+</body>
+
+</html>
